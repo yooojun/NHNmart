@@ -1,5 +1,9 @@
 package com.nhnacademy.mart;
 
+import java.util.Scanner;
+
+//main 함수
+//nhnmart-foodstand-food--baket, buylist(ArrayList, add메서드 구현), customer-buylist,baasket, Counter(pay) 를 호출
 public class NhnMartShell {
 
     public static void main(String[] args) {
@@ -12,25 +16,26 @@ public class NhnMartShell {
         // 본인이름을 각자 맞게 영어로 변경
         // 홍길동 학생
         // -> hongGilDong or gilDong
-        Customer 본인이름 = new Customer(buyList);
+        Customer YongJun = new Customer(buyList);
 
         // 장바구니를 챙긴다.
-        본인이름.bring(mart.provideBasket());
+        YongJun.bring(mart.provideBasket());
 
         // 식품을 담는다.
-        본인이름.pickFoods(mart.getFoodStand());
+        YongJun.pickFoods(mart.getFoodStand());
 
         // 카운터에서 계산한다.
-        본인이름.payTox(mart.getCounter());
+        YongJun.payTox(mart.getCounter());
     }
 
     private static BuyList inputBuyListFromShell() {
         // TODO Scanner 입력을 받아 buyList 만들기
+        Scanner scanner = new Scanner(System.in);
 
         BuyList buyList = new BuyList();
 
-        buyList.add(???);
+        buyList.add(scanner);
 
-        return null;
+        return buyList;
     }
 }

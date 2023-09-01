@@ -12,12 +12,17 @@ public class Customer {
         this.buyList = buyList;
     }
 
-    // 장바구니 챙기기
     public void bring(Basket basket) {
         this.basket = basket;
     }
 
     // TODO pickFoods 메서드 구현
+
+    public void pickFoods(FoodStand foodStand) {
+
+        basket.add(foodStand.del(buyList));
+
+    }
 
 
     // TODO payTox 메서드 구현
