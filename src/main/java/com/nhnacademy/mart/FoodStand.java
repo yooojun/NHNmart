@@ -11,9 +11,16 @@ public class FoodStand {
         foods.add(food);
     }
 
-    public Food del(BuyList buyList){
-
-        foods.remove(buyList.getfood(foods));
-    }
     // TODO 장바구니에 담은 Food 삭제 구현
+
+
+    public Food del(String buyList, int i) {
+        Food food = foods.get(i);
+        foods.remove(i);
+        return food;
+    }
+
+    public ArrayList<Food> getFoods() {
+        return foods;
+    }
 }
