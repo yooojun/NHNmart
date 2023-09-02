@@ -44,8 +44,10 @@ public class Customer {
         int totalPraice = counter.pay(basket);
 
         this.money -= totalPraice;
-        System.out.println(totalPraice);
-        System.out.println(money);
+        if (money < 0) {
+            throw new IllegalArgumentException("돈이 부족합니다");
+        }
+        System.out.println("고객님 결제 후 잔액 : " + money);
 
     }
 
