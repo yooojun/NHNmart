@@ -15,6 +15,8 @@ public class FoodStand {
 
 
     public Food del(String buyList, int i) {
+        if (buyList.equals(foods.get(i).getName()))
+            throw new IllegalArgumentException("재고가 부족합니다");
         Food food = foods.get(i);
         foods.remove(i);
         return food;
