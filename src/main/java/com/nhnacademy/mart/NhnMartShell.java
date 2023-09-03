@@ -26,7 +26,12 @@ public class NhnMartShell {
         YongJun.pickFoods(mart.getFoodStand());
 
         // 카운터에서 계산한다.
-        YongJun.payTox(mart.getCounter());
+        try {
+            YongJun.payTox(mart.getCounter());
+        }
+        catch (IllegalArgumentException e){
+            System.out.println(e);
+        }
     }
 
     private static BuyList inputBuyListFromShell() {

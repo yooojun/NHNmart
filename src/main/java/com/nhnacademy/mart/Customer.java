@@ -1,5 +1,7 @@
 package com.nhnacademy.mart;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,11 +27,14 @@ public class Customer {
     // TODO pickFoods 메서드 구현
 
     public void pickFoods(FoodStand foodStand) {
-        for (int h = 0; h < buyList.getItems().size(); h++) {
-            for (int j = 0; j < foodStand.getFoods().size(); j++) {
-                if (foodStand.getFoods().get(j).getName().equals(buyList.getItems().get(h).getName())) {
-                    for (int i = 0; i < buyList.getItems().get(h).getAmount(); i++) {
-                        basket.add(foodStand.del(buyList.getItems().get(h).getName(), j));
+        ArrayList<BuyList.Item> items = buyList.getItems();
+        ArrayList<Food> foods = foodStand.getFoods();
+
+        for (int h = 0; h < items.size(); h++) {
+            for (int j = 0; j < foods.size(); j++) {
+                if (foods.get(j).getName().equals(items.get(h).getName())) {
+                    for (int i = 0; i < items.get(h).getAmount(); i++) {
+                        basket.add(foodStand.del(items.get(h).getName(), j));
                     }
                     break;
                 }
