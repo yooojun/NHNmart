@@ -1,5 +1,9 @@
 package com.nhnacademy.mart;
 
+
+
+import static com.nhnacademy.mart.NhnMartShell.logger;
+
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
@@ -19,6 +23,7 @@ public class BuyList {
                 items.add(item);
             }
             else {
+                logger.warn("상품이 존재하지 않습니다.");
                 throw new IllegalArgumentException("존재하지 않는 상품입니다.");
             }
 

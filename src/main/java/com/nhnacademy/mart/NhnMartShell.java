@@ -2,10 +2,14 @@ package com.nhnacademy.mart;
 
 import java.util.Scanner;
 import java.util.StringTokenizer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 //main 함수
-//nhnmart-foodstand-food--baket, buylist(ArrayList, add메서드 구현), customer-buylist,baasket, Counter(pay) 를 호출
+
+@SuppressWarnings({"checkstyle:HideUtilityClassConstructor", "checkstyle:LineLength"})
 public class NhnMartShell {
+    public static final Logger logger = LoggerFactory.getLogger(NhnMartShell.class);
 
     public static void main(String[] args) {
         NhnMart mart = new NhnMart();
@@ -28,13 +32,13 @@ public class NhnMartShell {
         // 카운터에서 계산한다.
         try {
             YongJun.payTox(mart.getCounter());
-        }
-        catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             System.out.println(e);
         }
     }
 
     private static BuyList inputBuyListFromShell() {
+        logger.debug("NHN 마트에 오신 것을 환영합니다. 사고 싶은 물건을 골라주세요.");
         System.out.println("NHN 마트에 오신 것을 환영합니다. 사고 싶은 물건을 골라주세요.");
 
         // TODO Scanner 입력을 받아 buyList 만들기

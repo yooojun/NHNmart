@@ -1,5 +1,7 @@
 package com.nhnacademy.mart;
 
+import static com.nhnacademy.mart.NhnMartShell.logger;
+
 import java.util.ArrayList;
 
 public class FoodStand {
@@ -15,8 +17,10 @@ public class FoodStand {
 
 
     public Food del(String buyList, int i) {
-        if (!buyList.equals(foods.get(i).getName()))
+        if (!buyList.equals(foods.get(i).getName())) {
+            logger.warn("재고가 부족합니다");
             throw new IllegalArgumentException("재고가 부족합니다");
+        }
         Food food = foods.get(i);
         foods.remove(i);
         return food;
