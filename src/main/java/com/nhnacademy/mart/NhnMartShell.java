@@ -5,12 +5,31 @@ import java.util.StringTokenizer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-//main 함수
-
-@SuppressWarnings({"checkstyle:HideUtilityClassConstructor", "checkstyle:LineLength"})
+/**
+ * 1. NhnMartShell
+ * 2. main
+ * 3. input buylist
+ */
 public class NhnMartShell {
+
+    /**
+     * 1. main methode 동작
+     */
     public static final Logger logger = LoggerFactory.getLogger(NhnMartShell.class);
 
+    /**
+     * mart main class.
+     *
+     * <p>
+     *     마트 메인 클래스.
+     * </p>
+     *
+     * @param args main
+     *             Customer 생성.
+     *             bring 실행 장바구니 챙기기.
+     *             pickfood 물건을 집는다.
+     *             payTox 계산한다.
+     */
     public static void main(String[] args) {
         NhnMart mart = new NhnMart();
         mart.prepareMart();
@@ -21,17 +40,17 @@ public class NhnMartShell {
         // 본인이름을 각자 맞게 영어로 변경
         // 홍길동 학생
         // -> hongGilDong or gilDong
-        Customer YongJun = new Customer(buyList);
+        Customer yongjun = new Customer(buyList);
 
         // 장바구니를 챙긴다.
-        YongJun.bring(mart.provideBasket());
+        yongjun.bring(mart.provideBasket());
 
         // 식품을 담는다.
-        YongJun.pickFoods(mart.getFoodStand());
+        yongjun.pickFoods(mart.getFoodStand());
 
         // 카운터에서 계산한다.
         try {
-            YongJun.payTox(mart.getCounter());
+            yongjun.payTox(mart.getCounter());
         } catch (IllegalArgumentException e) {
             System.out.println(e);
         }

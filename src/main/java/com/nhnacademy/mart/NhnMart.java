@@ -1,5 +1,8 @@
 package com.nhnacademy.mart;
 
+/**
+ * 마트를 생성해 foodStand를 세팅하는 클래스.
+ */
 public class NhnMart {
 
     private final FoodStand foodStand = new FoodStand();

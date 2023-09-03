@@ -2,11 +2,11 @@ package com.nhnacademy.mart;
 
 import static com.nhnacademy.mart.NhnMartShell.logger;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+/**
+ * 소비자 클래스.
+ */
 public class Customer {
 
     // 고객 구매 목록
@@ -27,6 +27,13 @@ public class Customer {
 
     // TODO pickFoods 메서드 구현
 
+    /**
+     * barket에 food를 담는 메서드.
+     *
+     * @param foodStand pickFoods
+     *                  FoodStand를 받아 buylist에 있는 항목을.
+     *                  basket에 추가하는 메서드.
+     */
     public void pickFoods(FoodStand foodStand) {
         ArrayList<BuyList.Item> items = buyList.getItems();
         ArrayList<Food> foods = foodStand.getFoods();
@@ -46,6 +53,15 @@ public class Customer {
     }
     // TODO payTox 메서드 구현
 
+    /**
+     * barket을 counter로 넘겨 계산하는 메서드.
+     *
+     * @param counter payTox
+     *                Counter를 받아서 pay 메서드 호출.
+     *                총 물건값을 넘겨 받음.
+     *                물건 값이 가진 돈을 넘으면 throw.
+     *                아니면 결제를 진행.
+     */
     public void payTox(Counter counter) {
 
         int totalPraice = counter.pay(basket);
@@ -55,12 +71,10 @@ public class Customer {
             logger.warn("잔액이 부족합니다");
             throw new IllegalArgumentException("돈이 부족합니다");
         }
-        logger.info("고객님 결제 후 잔액 : {}",money);
+        logger.info("고객님 결제 후 잔액 : {}", money);
         System.out.println("고객님 결제 후 잔액 : " + money);
 
     }
-
-
 
 
 }
